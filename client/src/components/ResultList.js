@@ -1,0 +1,16 @@
+import React from "react";
+
+const ResultList = props => 
+            <ul className="list-group">
+                {props.results.map(result => (
+                <li className="list-group-item" key={result._id}>
+                    {/* {result.multimedia[2]?
+                    <img alt='name' src={`https://static01.nyt.com/${result.multimedia[2].url}`} />:""} */}
+                     <a href={result.web_url}>{result.headline.main}</a> | {result.snippet} | {result.pub_date} | {result.byline.original} |
+                   
+                </li>
+                ))}
+            </ul>
+  
+
+export default ResultList;
