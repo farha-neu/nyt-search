@@ -19,6 +19,13 @@ router.get("/api/articles", function(req, res) {
   });
 });
 
+router.get("/api/article/:articleId", function(req, res) {
+  Article.findOne({articleId:req.params.articleId})
+  .then((dbArticle) => {
+    res.json(dbArticle);
+  });
+});
+
 router.delete("/article/:id",function(req,res){
   Article.findByIdAndRemove(req.params.id)
   .then(() => {

@@ -10,8 +10,7 @@ class Home extends React.Component{
      results:[],
      search:"",
      startYear:"",
-     endYear:"",
-     saved:0
+     endYear:""
    }
   
    componentDidMount(){
