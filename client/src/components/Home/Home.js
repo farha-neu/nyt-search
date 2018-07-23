@@ -1,15 +1,17 @@
 import React from 'react';
 import './Home.css';
 import API from "../../utils/API";
-import ResultList from "../ResultList";
+import ResultList from "./ResultList";
 import SearchForm from "./SearchForm";
+
 
 class Home extends React.Component{
    state={
      results:[],
      search:"",
      startYear:"",
-     endYear:""
+     endYear:"",
+     saved:0
    }
   
    componentDidMount(){
@@ -35,7 +37,7 @@ class Home extends React.Component{
     });
   };
 
-
+ 
   handleFormSubmit = event => {
     event.preventDefault();
     this.searchNews(this.state.search,this.state.startYear,this.state.endYear);
@@ -53,7 +55,7 @@ class Home extends React.Component{
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
         />
-      <ResultList results={this.state.results}/>
+      <ResultList results={this.state.results} saved={this.state.saved}/>
       </div>
     )
   }

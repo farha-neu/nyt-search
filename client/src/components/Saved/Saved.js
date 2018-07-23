@@ -1,6 +1,6 @@
 import React from 'react';
 import './Saved.css';
-import SavedList from "../SavedList";
+import SavedList from "./SavedList";
 import axios from "axios";
 
 class Saved extends React.Component{
@@ -21,12 +21,15 @@ class Saved extends React.Component{
       });
   }
    
+  removeArticle=(id)=>{
+    
+  }
    
   render(){
     var a = this.state.results;
     console.log("a",a);
     return(
-      <SavedList results={this.state.results}/>
+      <SavedList results={this.state.results} removeArticle={this.removeArticle}/>
     )
   }
 

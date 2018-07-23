@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 const ResultList = props => 
     
@@ -8,8 +9,7 @@ const ResultList = props =>
                     {/* {result.multimedia[2]?
                     <img alt='name' src={`https://static01.nyt.com/${result.multimedia[2].url}`} />:""} */}
                      <a href={result.web_url}>{result.headline.main}</a> <br/> {result.snippet} <br/> {result.pub_date} <br/>
-                     <button className="btn btn-sm btn-success">Save Article</button>
-                   
+                     <Button article={{title : result.headline.main,snippet:result.snippet,date:result.pub_date,url:result.web_url}}/>
                 </li>
                 ))}
             </ul>
