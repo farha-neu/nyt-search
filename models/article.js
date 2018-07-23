@@ -18,9 +18,6 @@ const articleSchema = new Schema({
     type: String,
     required: true,
     unique: true
-  },
-  byline: {
-    type: String
   }
 });
 
