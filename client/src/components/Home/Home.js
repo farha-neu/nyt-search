@@ -33,5 +33,5 @@ class Home extends React.Component{
   }
 
 }
-
+{/* <a href={result.web_url}>{result.headline.main}</a> | {result.snippet} | {result.pub_date} | {result.byline.original} | */}
 export default Home;

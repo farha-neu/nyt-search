@@ -6,7 +6,8 @@ const ResultList = props =>
                 <li className="list-group-item" key={result._id}>
                     {/* {result.multimedia[2]?
                     <img alt='name' src={`https://static01.nyt.com/${result.multimedia[2].url}`} />:""} */}
-                     <a href={result.web_url}>{result.headline.main}</a> | {result.snippet} | {result.pub_date} | {result.byline.original} |
+                     <a href={result.web_url}>{result.headline.main}</a> | {result.snippet} | {result.pub_date} | {result.byline.original} <br/>
+                     <button className="btn btn-sm btn-success">Save Article</button>
                    
                 </li>
                 ))}
