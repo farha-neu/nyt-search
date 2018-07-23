@@ -22,7 +22,13 @@ class Saved extends React.Component{
   }
    
   removeArticle=(id)=>{
-    
+    // var confirmation = confirm("Are you sure you want to delete this article?");
+    var r = window.confirm("The article will be deleted. Proceed?");
+    if(r===true){
+      axios.delete(`/article/${id}`).then((response)=>{
+        this.getSavedArticles();
+    });
+    }
   }
    
   render(){

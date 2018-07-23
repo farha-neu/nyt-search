@@ -20,7 +20,7 @@ router.get("/api/articles", function(req, res) {
 });
 
 router.delete("/article/:id",function(req,res){
-  Article.findByIdAndRemove(req.params._id)
+  Article.findByIdAndRemove(req.params.id)
   .then(() => {
     res.json("deleted");
   });
