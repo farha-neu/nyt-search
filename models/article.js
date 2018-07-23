@@ -22,6 +22,10 @@ const articleSchema = new Schema({
     type: String,
     required: true,
     unique: true
+  },
+  dateSaved:{
+    type:Date,
+    default:Date.now
   }
 });
 
