@@ -2,6 +2,7 @@ import React from "react";
 import Moment from 'react-moment';
 import NoteBox from './NoteBox';
 import "../Home/Home.css";
+import "./Saved.css";
 
 class SavedList extends React.Component{
     state={
@@ -29,10 +30,10 @@ class SavedList extends React.Component{
                             :""} 
                         </div>
                         <div className="col-md-2">
-                            <button className="btn btn-sm btn-danger mr-2" onClick={()=>this.props.removeArticle(this.props.id)}>REMOVE</button>
-                            <button className="btn btn-sm btn-danger" onClick={this.showNote}>Notes</button>
-                            {this.state.clicked===true?<NoteBox/>:""}
+                            <button className="btn btn-sm btn-danger float-md-right" onClick={()=>this.props.removeArticle(this.props.id)}><i class="fas fa-trash-alt"></i></button>
+                            <button className="btn btn-sm btn-info float-md-right mr-2" onClick={this.showNote}><i class="fas fa-comment-alt"></i></button>
                         </div>
+                        {this.state.clicked===true?<NoteBox/>:""}
                     </div>
            </div>
         )

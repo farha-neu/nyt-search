@@ -1,7 +1,7 @@
 import React from "react";
 
 const NoteBox = () => (
-  <div>
+  <div className="col-md-12">
     <p>
       Notes: Lorem ipsum dolor sit amet, est ut enim consequat. Nostrum fastidii partiendo sed ne, no mutat
       ludus aperiri mea, per in choro dolorem electram. Invidunt reprimique assueverit quo ne,
