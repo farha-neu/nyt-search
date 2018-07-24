@@ -1,3 +1,9 @@
 .fa-comment-alt{
     color: white;
 }
+
+.note-header{
+    color: orange;
+    font-size:22px;
+    font-weight: bold;
+}

@@ -1,12 +1,14 @@
 import React from "react";
+import './Saved.css';
 
 const NoteBox = () => (
   <div className="col-md-12">
-    <p>
-      Notes: Lorem ipsum dolor sit amet, est ut enim consequat. Nostrum fastidii partiendo sed ne, no mutat
-      ludus aperiri mea, per in choro dolorem electram. Invidunt reprimique assueverit quo ne,
-      eruditi graecis pro ut. Usu ut diceret scaevola evertitur, appareat voluptatibus ad vel.
-    </p>
+      <form>
+        <div className="form-group">
+            <span class="note-header"><img src="images/notes.png" alt="note-icon"></img>Notes</span>
+            <textarea className="form-control" id="note" rows="3" placeholder="Add a note...."></textarea>
+          </div>
+        </form>
   </div>
 );
 
