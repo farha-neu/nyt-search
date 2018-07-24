@@ -20,12 +20,12 @@ class Home extends React.Component{
    
    landingSearch=()=>{
     API.landingSearch()
-      .then(res => this.setState({results: res.data.response.docs}))
+      .then(res => this.setState({results: res.data.response.docs.slice(0,5)}))
       .catch(err => console.log(err));
    }
    searchNews=(query,bd,ed)=>{
      API.search(query,bd+"0101",ed+"0101")
-       .then(res => this.setState({results: res.data.response.docs}))
+       .then(res => this.setState({results: res.data.response.docs.slice(0,5)}))
        .catch(err => console.log(err));
   }
   handleInputChange = event => {

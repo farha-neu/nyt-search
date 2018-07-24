@@ -14,7 +14,7 @@ class App extends Component {
         <div>
           <NavTabs />
           <Route exact path="/" component={Home} />
-          <Route exact path="/saved" component={Saved} />
+          <Route path="/saved" component={Saved} />
         </div>
      </Router>
     );

@@ -3,6 +3,7 @@ import './Saved.css';
 import SavedList from "./SavedList";
 import axios from "axios";
 
+
 class Saved extends React.Component{
    state={
      results:[]
@@ -22,8 +23,7 @@ class Saved extends React.Component{
   }
    
   removeArticle=(id)=>{
-    // var confirmation = confirm("Are you sure you want to delete this article?");
-    var r = window.confirm("The article will be deleted. Proceed?");
+    var r = window.confirm("The article will be deleted. Proceed?"+id);
     if(r===true){
       axios.delete(`/article/${id}`).then((response)=>{
         this.getSavedArticles();
@@ -32,10 +32,15 @@ class Saved extends React.Component{
   }
    
   render(){
-    var a = this.state.results;
-    console.log("a",a);
     return(
-      <SavedList results={this.state.results} removeArticle={this.removeArticle}/>
+          <ul className="list-group">
+            {this.state.results.map(result=>(
+              <div>
+                  <SavedList url={result.url} title={result.title} 
+                  snippet={result.snippet} date={result.date} dateSaved={result.dateSaved} id={result._id} removeArticle={this.removeArticle}/>
+              </div>
+            ))}
+          </ul>
     )
   }
 
