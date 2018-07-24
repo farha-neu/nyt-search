@@ -5,12 +5,15 @@ import ResultList from "./ResultList";
 import SearchForm from "./SearchForm";
 import Jumbotron from "../Jumbotron";
 
+
 class Home extends React.Component{
    state={
      results:[],
      search:"",
      startYear:"",
-     endYear:""
+     endYear:"",
+     errorInput:false,
+     latestStory:true
    }
   
    componentDidMount(){
@@ -20,13 +23,14 @@ class Home extends React.Component{
    
    landingSearch=()=>{
     API.landingSearch()
-      .then(res => this.setState({results: res.data.response.docs.slice(0,5)}))
+      .then(res => this.setState({results: res.data.response.docs.slice(0,5),latestStory:true}))
       .catch(err => console.log(err));
    }
    searchNews=(query,bd,ed)=>{
-     API.search(query,bd,ed)
-       .then(res => this.setState({results: res.data.response.docs.slice(0,5)}))
-       .catch(err => console.log(err));
+      API.search(query,bd,ed)
+      .then(res => this.setState({results: res.data.response.docs.slice(0,5),latestStory:false}))
+      .catch(err => console.log(err));
+     
   }
   handleInputChange = event => {
     const name = event.target.name;
@@ -39,7 +43,14 @@ class Home extends React.Component{
  
   handleFormSubmit = event => {
     event.preventDefault();
-    this.searchNews(this.state.search,this.state.startYear,this.state.endYear);
+    if(this.state.search.trim()!==""){
+      this.setState({errorInput:false});
+      this.searchNews(this.state.search,this.state.startYear,this.state.endYear);
+    }
+    else{
+      this.setState({errorInput:true});
+    }
+    
   };
 
 
@@ -50,13 +61,16 @@ class Home extends React.Component{
 
       <div>
           <Jumbotron>Search articles of interest!</Jumbotron>
-          <div class="container">
+          <div className="container">
               <SearchForm
                   search={this.state.search}
+                  startYear={this.state.startYear}
+                  endYear={this.state.endYear}
                   handleFormSubmit={this.handleFormSubmit}
                   handleInputChange={this.handleInputChange}
+                  errorInput={this.state.errorInput}
                 />
-              <ResultList results={this.state.results} saved={this.state.saved}/>
+              <ResultList results={this.state.results} saved={this.state.saved} latestStory={this.state.latestStory}/>
           </div>
       </div>
     )

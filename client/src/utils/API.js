@@ -10,9 +10,9 @@ export default {
             q =q+"&begin_date="+beginDate+"0101";
         }
         if(endDate){
-            q =q+"&end_date="+endDate+"0101";
+            q =q+"&end_date="+endDate+"1230";
         }
-        // console.log(q);
+         console.log(q);
         return axios.get(q);
     },
 

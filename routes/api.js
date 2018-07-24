@@ -13,7 +13,7 @@ router.post("/api/articles", function(req, res) {
 
 router.get("/api/articles", function(req, res) {
   // find all saved articles
-  Article.find({})
+  Article.find({}).sort([['dateSaved', -1]])
   .then((dbArticle) => {
     res.json(dbArticle);
   });

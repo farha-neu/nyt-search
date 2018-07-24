@@ -28,11 +28,13 @@ class Button extends React.Component{
     render(){
         return(
             this.state.saved===0?
-            <button className="btn btn-success btn-sm" onClick={()=>this.saveArticle(this.props.article)}>Save Article</button>:
-            <button className="btn btn-warning btn-sm" onClick={()=>this.saveArticle(this.props.article)}><i class="fas fa-check"></i>Saved</button>          
+            <button className="btn btn-sm btn-info" data-toggle="tooltip" data-placement="bottom" title="Save for Later" 
+            onClick={()=>this.saveArticle(this.props.article)}><i className="fas fa-bookmark"></i></button>:
+            <button className="btn btn-success btn-sm" data-toggle="tooltip" data-placement="bottom" title="Saved!" onClick={()=>this.saveArticle(this.props.article)}><i className="fas fa-check"></i></button>          
         )
     } 
 }
 
 
 export default Button;
+ 

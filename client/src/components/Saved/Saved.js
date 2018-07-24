@@ -23,7 +23,7 @@ class Saved extends React.Component{
   }
    
   removeArticle=(id)=>{
-    var r = window.confirm("The article will be deleted. Proceed?"+id);
+    var r = window.confirm("Are you sure you want to delete this article? Click OK to confirm.");
     if(r===true){
       axios.delete(`/article/${id}`).then((response)=>{
         this.getSavedArticles();
@@ -34,19 +34,31 @@ class Saved extends React.Component{
   render(){
     return(
          <div>
-          <Jumbotron>Save articles for future reference!</Jumbotron>
-              <ul className="list-group">
-                {this.state.results.map(result=>(
-                  <div>
-                      <SavedList url={result.url} title={result.title} 
-                      snippet={result.snippet} date={result.date} dateSaved={result.dateSaved} id={result._id} removeArticle={this.removeArticle}/>
+            <Jumbotron>Save articles for future reference!</Jumbotron>
+             <div className="container">
+                <div className="card mt-4 mb-4">
+                    <div className="card-header text-center">
+                      <img src="images/result.png" alt="result" className="search-icon"/> 
+                      <span className="search-header">All Saved Articles</span>
+                </div>
+                <div className="card-body">
+                    <div className="row ml-2 mr-2">
+                        {this.state.results.length===0?
+                        <div className="col-md-12 news text-center">
+                            <p className="headline"> No news saved!</p>
+                        </div>:
+                        this.state.results.map(result => (
+                            <SavedList url={result.url} title={result.title} 
+                            snippet={result.snippet} date={result.date} dateSaved={result.dateSaved} id={result._id} 
+                            image={result.image} 
+                            byline={result.byline} removeArticle={this.removeArticle} key={result._id}/>
+                        
+                   ))}
                   </div>
-                ))}
-              </ul>
-          </div>
-    )
-  }
-
-}
+            </div>
+        </div>
+     </div>
+   </div>
+    )}}
 
 export default Saved;

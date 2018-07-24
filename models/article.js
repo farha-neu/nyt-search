@@ -15,13 +15,18 @@ const articleSchema = new Schema({
     required: true
   },
   date: {
-    type: Date,
-    required: true
+    type: Date
   },
   url: {
     type: String,
     required: true,
     unique: true
+  },
+  byline:{
+    type:String
+  },
+  image:{
+    type:String
   },
   dateSaved:{
     type:Date,
