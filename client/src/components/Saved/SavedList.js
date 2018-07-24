@@ -21,7 +21,7 @@ class SavedList extends React.Component{
                             <p className="headline"><a href={this.props.url}>{this.props.title}</a></p>
                             <p className="snippet">{this.props.snippet}</p>
                             <div className="byline"><span>{this.props.byline}</span><i className="fas fa-circle ml-1 mr-1"></i>
-                            <span> <Moment format="YYYY/MM/DD h:mm:ssa">{this.props.date}</Moment></span></div>
+                            <span> Published: <Moment format="YYYY/MM/DD h:mm:ssa">{this.props.date}</Moment></span></div>
                             <p className="mt-1"> Date Saved: <Moment format="YYYY/MM/DD h:mm:ssa">{this.props.dateSaved}</Moment></p>
                         </div>
                         <div className="col-md-2">

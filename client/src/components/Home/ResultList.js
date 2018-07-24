@@ -27,7 +27,7 @@ const ResultList = props =>
                                 <p className="headline"><a href={result.web_url}>{result.headline.main}</a></p>
                                 <p className="snippet">{result.snippet}</p>
                                 <div className="byline"><span>{result.byline? result.byline.original :""}</span><i className="fas fa-circle ml-1 mr-1"></i>
-                                <span> <Moment format="YYYY/MM/DD h:mm:ssa">{result.pub_date}</Moment></span> 
+                                <span> Published: <Moment format="YYYY/MM/DD h:mm:ssa">{result.pub_date}</Moment></span> 
                                 </div>
                             </div>
                             <div className="col-md-2">
