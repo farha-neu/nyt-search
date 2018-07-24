@@ -5,14 +5,15 @@ const APIKEY = "c42c8ce0786b4f0cb1fcc02fca9c7ea4";
 
 export default {
     search: function(query,beginDate,endDate) {
+        var q =BASEURL+"api-key="+APIKEY+"&q="+query;
         if(beginDate){
-            var q =BASEURL+"api-key="+APIKEY+"&q="+query+"&begin_date="+beginDate+"&end_date="+endDate;
-            console.log(q);
-            return axios.get(q);
+            q =q+"&begin_date="+beginDate+"0101";
         }
-        else{
-            return axios.get(BASEURL+"api-key="+APIKEY+"&q="+query);
+        if(endDate){
+            q =q+"&end_date="+endDate+"0101";
         }
+        // console.log(q);
+        return axios.get(q);
     },
 
     landingSearch: function(){

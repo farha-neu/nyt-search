@@ -2,7 +2,7 @@ import React from 'react';
 import './Saved.css';
 import SavedList from "./SavedList";
 import axios from "axios";
-
+import Jumbotron from "../Jumbotron";
 
 class Saved extends React.Component{
    state={
@@ -33,14 +33,17 @@ class Saved extends React.Component{
    
   render(){
     return(
-          <ul className="list-group">
-            {this.state.results.map(result=>(
-              <div>
-                  <SavedList url={result.url} title={result.title} 
-                  snippet={result.snippet} date={result.date} dateSaved={result.dateSaved} id={result._id} removeArticle={this.removeArticle}/>
-              </div>
-            ))}
-          </ul>
+         <div>
+          <Jumbotron>Save articles for future reference!</Jumbotron>
+              <ul className="list-group">
+                {this.state.results.map(result=>(
+                  <div>
+                      <SavedList url={result.url} title={result.title} 
+                      snippet={result.snippet} date={result.date} dateSaved={result.dateSaved} id={result._id} removeArticle={this.removeArticle}/>
+                  </div>
+                ))}
+              </ul>
+          </div>
     )
   }
 

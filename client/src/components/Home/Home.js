@@ -3,7 +3,7 @@ import './Home.css';
 import API from "../../utils/API";
 import ResultList from "./ResultList";
 import SearchForm from "./SearchForm";
-
+import Jumbotron from "../Jumbotron";
 
 class Home extends React.Component{
    state={
@@ -24,7 +24,7 @@ class Home extends React.Component{
       .catch(err => console.log(err));
    }
    searchNews=(query,bd,ed)=>{
-     API.search(query,bd+"0101",ed+"0101")
+     API.search(query,bd,ed)
        .then(res => this.setState({results: res.data.response.docs.slice(0,5)}))
        .catch(err => console.log(err));
   }
@@ -49,12 +49,15 @@ class Home extends React.Component{
     return(
 
       <div>
-       <SearchForm
-          search={this.state.search}
-          handleFormSubmit={this.handleFormSubmit}
-          handleInputChange={this.handleInputChange}
-        />
-      <ResultList results={this.state.results} saved={this.state.saved}/>
+          <Jumbotron>Search articles of interest!</Jumbotron>
+          <div class="container">
+              <SearchForm
+                  search={this.state.search}
+                  handleFormSubmit={this.handleFormSubmit}
+                  handleInputChange={this.handleInputChange}
+                />
+              <ResultList results={this.state.results} saved={this.state.saved}/>
+          </div>
       </div>
     )
   }
