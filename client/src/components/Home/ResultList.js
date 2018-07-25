@@ -8,7 +8,7 @@ const ResultList = props =>
         <div className="card mt-4 mb-4">
             <div className="card-header text-center">
                 <img src="images/result.png" alt="result" className="search-icon"/> {props.latestStory===true?
-                <span className="search-header">Todays latest stories</span>:
+                <span className="search-header">Today's Latest Stories</span>:
                 <span className="search-header">Search Results</span>}
             </div>
             <div className="card-body">
