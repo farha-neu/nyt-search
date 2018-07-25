@@ -2,6 +2,7 @@ import React from "react";
 import Moment from 'react-moment';
 import "../Home/Home.css";
 import "./Saved.css";
+import ReactTooltip from 'react-tooltip';
 
 const SavedList =(props)=>
         (
@@ -20,8 +21,11 @@ const SavedList =(props)=>
                             :""} 
                         </div>
                         <div className="col-md-2">
-                            <button className="btn btn-sm btn-danger float-md-right" onClick={()=>props.removeArticle(props.id)}><i class="fas fa-trash-alt"></i></button>
+                            <button data-tip="Remove from saved" className="btn btn-sm btn-danger float-md-right" onClick={()=>this.props.removeArticle(this.props.id)}><i className="fas fa-trash-alt"></i></button>
+                            <button data-tip="View/Add notes" className="btn btn-sm btn-info float-md-right mr-2" onClick={this.showNote}><i className="fas fa-comment-alt"></i></button>
                         </div>
+                        {this.state.clicked===true?<NoteBox id={this.props.id} articleId={this.props.articleId}/>:""}
+                        <ReactTooltip />
                     </div>
            </div>
         )

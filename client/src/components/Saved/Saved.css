@@ -1,3 +1,19 @@
 .fa-comment-alt{
     color: white;
 }
+
+.note-header{
+    color: teal;
+    font-size:22px;
+    font-weight: bold;
+}
+
+.btn-note{
+    margin-top: -10px
+}
+
+.note{
+    background: rgba(0,0,0,.13);
+    padding:10px;
+    border: 1px solid gray;
+}
