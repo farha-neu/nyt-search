@@ -9,7 +9,7 @@ class Saved extends React.Component{
      results:[]
    }
   
-   componentDidMount(){
+   componentWillMount(){
      console.log("component did mount");
      this.getSavedArticles();
    }
@@ -49,7 +49,10 @@ class Saved extends React.Component{
                         </div>:
                         this.state.results.map(result => (
                             <SavedList url={result.url} title={result.title} 
-                            snippet={result.snippet} date={result.date} dateSaved={result.dateSaved} id={result._id} 
+                            snippet={result.snippet} 
+                            date={result.date} 
+                            dateSaved={result.dateSaved} id={result._id} 
+                            articleId={result.articleId}
                             image={result.image} 
                             byline={result.byline} removeArticle={this.removeArticle} key={result._id}/>
                         
