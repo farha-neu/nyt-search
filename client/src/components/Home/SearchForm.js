@@ -19,12 +19,12 @@ const SearchForm = props => (
                 <div className="form-group col-md-3">
                   <label htmlFor="start year">Start Year</label>
                   <input onChange={props.handleInputChange}  value={props.startYear} name="startYear"
-                  type="text" className="form-control" id="startYear" placeholder="Start Year"/>
+                  type="text" className="form-control" id="startYear" placeholder="Start Year YYYY"/>
                 </div>
                 <div className="form-group col-md-3">
                   <label htmlFor="end year">End Year</label>
                   <input onChange={props.handleInputChange} value={props.endYear} name="endYear"
-                  type="text" className="form-control" id="endYear" placeholder="End Year"/>
+                  type="text" className="form-control" id="endYear" placeholder="End Year YYYY"/>
                 </div>
                 <div className="form-group col-md-1">
                   <label htmlFor="searching">Search!</label>
