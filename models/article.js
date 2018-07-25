@@ -31,11 +31,7 @@ const articleSchema = new Schema({
   dateSaved:{
     type:Date,
     default:Date.now
-  },
-  note: [{
-    type: Schema.Types.ObjectId,
-    ref: "Note"
-  }]
+  }
 });
 
 const Article = mongoose.model("Article", articleSchema);
