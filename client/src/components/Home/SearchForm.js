@@ -4,7 +4,7 @@ import './Home.css';
 const SearchForm = props => (
   <div className="card">
         <div className="card-header text-center">
-          <img src="images/search.png" alt="search" className="search-icon"/><span className="search-header">Search Parameters</span></div>
+          <img src="images/search.png" alt="search" class="search-icon"/><span className="search-header">Search Parameters</span></div>
         <div className="card-body">
 
           <form>
@@ -19,12 +19,12 @@ const SearchForm = props => (
                 <div className="form-group col-md-3">
                   <label htmlFor="start year">Start Year</label>
                   <input onChange={props.handleInputChange}  value={props.startYear} name="startYear"
-                  type="text" className="form-control" id="startYear" placeholder="Start Year(e.g. 2015)"/>
+                  type="text" className="form-control" id="startYear" placeholder="Start Year"/>
                 </div>
                 <div className="form-group col-md-3">
                   <label htmlFor="end year">End Year</label>
                   <input onChange={props.handleInputChange} value={props.endYear} name="endYear"
-                  type="text" className="form-control" id="endYear" placeholder="End Year(e.g. 2018)"/>
+                  type="text" className="form-control" id="endYear" placeholder="End Year"/>
                 </div>
                 <div className="form-group col-md-1">
                   <label htmlFor="searching">Search!</label>

@@ -55,8 +55,8 @@ class Home extends React.Component{
 
 
   render(){
-    // var a = this.state.results;
-    // console.log("a",a);
+    var a = this.state.results;
+    console.log("a",a);
     return(
 
       <div>

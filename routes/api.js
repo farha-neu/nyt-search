@@ -1,6 +1,5 @@
 const router = require("express").Router();
-const Article = require("../models/Article.js");
-const Note = require("../models/Note.js");
+const Article = require("../models/article.js");
 
 router.post("/api/articles", function(req, res) {
   Article.create(req.body)
@@ -21,7 +20,7 @@ router.get("/api/articles", function(req, res) {
 });
 
 router.get("/api/article/:articleId", function(req, res) {
-  Article.findOne({articleId:req.params.articleId}).populate("note")
+  Article.findOne({articleId:req.params.articleId})
   .then((dbArticle) => {
     res.json(dbArticle);
   });
@@ -34,20 +33,6 @@ router.delete("/article/:id",function(req,res){
   });
 });
 
-
-// Route for saving/updating an Article's associated Note
-router.post("/articles/:id", function(req, res) {
-  Note.create(req.body)
-    .then(function(dbNote) {
-      return Article.findOneAndUpdate({ _id: req.params.id },{$push: {note: dbNote._id} }, { new: true });
-    })
-    .then(function(dbArticle) {
-      res.json(dbArticle);
-    })
-    .catch(function(err) {
-      res.json(err);
-    });
-});
 
 
 module.exports = router;
