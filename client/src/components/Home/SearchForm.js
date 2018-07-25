@@ -13,18 +13,18 @@ const SearchForm = props => (
                 <div className="form-group col-md-5">
                   <label htmlFor="topic">Topic<span className="rc">*</span></label>
                   <input  onChange={props.handleInputChange} value={props.search} name="search"
-                  type="text" className="form-control" id="search" placeholder="Topic"/>
+                  type="text" className="form-control" id="search" placeholder="Topic e.g. health"/>
                    {props.errorInput===true?<div className="mt-1 rc"> Please enter a topic</div>:""}
                 </div>
                 <div className="form-group col-md-3">
                   <label htmlFor="start year">Start Year</label>
                   <input onChange={props.handleInputChange}  value={props.startYear} name="startYear"
-                  type="text" className="form-control" id="startYear" placeholder="Start Year YYYY"/>
+                  type="text" className="form-control" id="startYear" placeholder="YYYY e.g. 2010"/>
                 </div>
                 <div className="form-group col-md-3">
                   <label htmlFor="end year">End Year</label>
                   <input onChange={props.handleInputChange} value={props.endYear} name="endYear"
-                  type="text" className="form-control" id="endYear" placeholder="End Year YYYY"/>
+                  type="text" className="form-control" id="endYear" placeholder="YYYY e.g. 2018"/>
                 </div>
                 <div className="form-group col-md-1">
                   <label htmlFor="searching">Search!</label>
